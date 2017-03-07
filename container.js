@@ -6,5 +6,5 @@
  * ===================================================================================== */
 
 module.exports = function (container) {
-    container.register('Webdriver.Browser', require('./services/Browser.js'));
+    container.register('Webdriver.Browser', require('./services/Browser'));
 }

@@ -7,13 +7,13 @@
  * ============================================================================== */
 
 var Browser = function (config, BrowserConfig, logger, options) {
+    this.config = config;
+    this.webdriver = require('selenium-webdriver');
 
     var self = this;
     var async = require('async');
     var host = this.config.get('host');
 
-    this.config = config;
-    this.webdriver = require('selenium-webdriver');
 
     this.connectToBrowser = function (callback) {
 
@@ -28,8 +28,8 @@ var Browser = function (config, BrowserConfig, logger, options) {
             usingServer('http://' + serverHost + ':' + serverPort + '/wd/hub').
             build();
 
-        this.$ = require('../lib/WebdriverSizzle')(this.driver, this.webdriver);
-        this.Browser = require('chainit')(require('../lib/WebdriverBrowser'));
+        this.$ = require('../lib/Sizzle')(this.driver, this.webdriver);
+        this.Browser = require('chainit')(require('../lib/Browser'));
         this.browser = new this.Browser(this.driver, this.$, logger,
             {
                 host: host,
@@ -90,4 +90,4 @@ var BrowserFactory = function (config, BrowserConfig, logger, options) {
 };
 
 module.exports = BrowserFactory;
-module.exports.$inject = ['config', 'BrowserConfig', 'Logger', 'Options'];
+module.exports.$inject = ['config', 'Webdriver.Browser.Config', 'Logger', 'Options'];
