@@ -7,4 +7,5 @@
 
 module.exports = function (container) {
     container.register('Webdriver.Browser', require('./services/Browser'));
+    container.register('Webdriver.Browser.Config', require('./services/BrowserConfig'));
 }
