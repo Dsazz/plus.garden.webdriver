@@ -1,6 +1,7 @@
 # plus.garden.webdriver [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 [API Reference](./docs/API-reference.md) |
 [CSS Selectors](./docs/css-selectors.md) |
+[Selenium installation guide](./docs/selenium-installation.md)
 > Webdriver for Garden.js
 
 ## Installing/Configuring
@@ -67,7 +68,9 @@ You also can install this package with [Garden generator](https://github.com/Dsa
 
 ## Dependencies
 
-For using [plus.garden.webdriver](https://github.com/Dsazz/plus.garden.webdriver/) you should install and run [Selenium server](http://www.seleniumhq.org/download/). You can install and manage it in any convenient way. For example, you can use [webdriver-manager](https://www.npmjs.com/package/webdriver-manager) or [Docker](https://www.docker.com/) with your configurations for [Selenium server](http://www.seleniumhq.org/) or by provided in [generator-garden](https://github.com/Dsazz/generator-garden) [configuration file](https://github.com/Dsazz/generator-garden/blob/master/generators/app/templates/docker-compose.yml) for [docker-compose](https://docs.docker.com/compose/), which you can install, if answer "YES" on related question.
+For using plus.garden.webdriver you should install and run Selenium server. You can install and manage it in any convenient way.
+
+We provide a list of steps for installing [Selenium](http://www.seleniumhq.org/), which we tested in our package. See [here](https://github.com/Dsazz/plus.garden.webdriver/blob/master/docs/selenium-installation.md).
 
 
 [npm-image]: https://badge.fury.io/js/plus.garden.webdriver.svg
