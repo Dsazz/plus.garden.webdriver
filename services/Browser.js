@@ -6,14 +6,14 @@
  * Licensed under MIT (https://github.com/linkshare/plus.garden.webdriver/blob/master/LICENSE)
  * ============================================================================== */
 
+var request = require('request-promise');
+
 var Browser = function (config, BrowserConfig, logger, options) {
     this.config = config;
     this.webdriver = require('selenium-webdriver');
 
     var self = this;
-    var async = require('async');
     var host = this.config.get('host');
-
 
     this.connectToBrowser = function (callback) {
 
@@ -23,27 +23,41 @@ var Browser = function (config, BrowserConfig, logger, options) {
         var serverHost = this.getParameter('server_host');
         var serverPort = this.getParameter('server_port');
 
-        this.driver = new this.webdriver.Builder().
-            withCapabilities(capabilities).
-            usingServer('http://' + serverHost + ':' + serverPort + '/wd/hub').
-            build();
+        this.driver = new this.webdriver.Builder()
+            .withCapabilities(capabilities)
+            .usingServer('http://' + serverHost + ':' + serverPort + '/wd/hub')
+            .build();
 
         this.$ = require('../lib/Sizzle')(this.driver, this.webdriver);
         this.Browser = require('chainit')(require('../lib/Browser'));
-        this.browser = new this.Browser(this.driver, this.$, logger,
-            {
-                host: host,
-                waitTimeout: this.getParameter('waitTimeout')
-            });
+        this.browser = new this.Browser(this.driver, this.$, logger, {
+            host: host,
+            waitTimeout: this.getParameter('waitTimeout')
+        });
 
         callback(self);
     };
 
     this.then = function (next) {
+        self.seleniumRunOrExit();
         self.connectToBrowser(function () {
             next(self);
         });
     };
+
+    this.seleniumRunOrExit = function () {
+        var serverHost = this.getParameter('server_host');
+        var serverPort = this.getParameter('server_port');
+
+        request({
+            uri: 'http://' + serverHost + ':' + serverPort + '/wd/hub',
+            simple: false
+        })
+            .catch(function (err) {
+                console.error('\x1b[31m', 'WEBDRIVER ' + err.message);
+                process.exit();
+            });
+    }
 
     this.before = function () {
         var screenResolution = self.getParameter('screen_resolution');
