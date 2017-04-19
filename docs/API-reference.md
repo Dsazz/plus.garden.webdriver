@@ -80,6 +80,7 @@ Demo definition
   * [`setValue`](#setValue)
   * [`submitForm`](#submitForm)
   * [`moveToObject`](#moveToObject)
+  * [`scrollToElement`](#scrollToElement)
   * [`dragAndDrop`](#dragAndDrop)
 * **Property**
   * [`getText`](#getText)
@@ -574,6 +575,15 @@ Move the mouse by an offset of the specified element.
 ```javascript
 this.browser
     .moveToObject('#main')
+    .then(callback);
+```
+-------------
+<a name="scrollToElement" />
+###scrollToElement
+Move the mouse by an offset of the specified element.
+```javascript
+this.browser
+    .scrollToElement('#main')
     .then(callback);
 ```
 -------------
