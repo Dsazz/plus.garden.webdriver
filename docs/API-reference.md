@@ -9,14 +9,14 @@ Garden Webdriver has two objects `browser` and `dirver`
 
 these are the main methods to return `driver` elements promises
 
-###getElement
+### getElement
 ```javascript
 this.browser.getElement(cssSelector).then(function (element) {
     element.click().then(callback);
 });
 ```
 
-###getElements
+### getElements
 ```javascript
 this.browser.getElements(cssSelector).then(function (elements) {
     console.log(elements.length);
@@ -118,152 +118,194 @@ Demo definition
   * [`closeWindow`](#closeWindow)
 
 
-### Assertions
-
+Assertions
+----------
 <a name="assertStatus" />
-###assertStatus
+
+### assertStatus
 Checks if the HTTP response status code of current page equals to given.
+
 ```javascript
 this.browser.assertStatus(statusCode).then(callback);
 ```
 -------------
+
 <a name="assertStatusByUrl" />
-###assertStatusByUrl
+
+### assertStatusByUrl
 Checks if the HTTP response status code of given url equals to given.
 ```javascript
 this.browser.assertStatusByUrl(url, statusCode).then(callback);
 ```
 -------------
+
 <a name="assertAttributeEquals" />
-###assertAttributeEquals
+
+### assertAttributeEquals
 Checks if the given attribute of an element has the expected value.
 ```javascript
 this.browser.assertAttributeEquals(cssSelector, attribute, expected).then(callback);
 ```
 -------------
+
 <a name="assertContainsText" />
-###assertContainsText
+
+### assertContainsText
 Checks if the given element contains the specified text.
 ```javascript
 this.browser.assertContainsText(cssSelector, expectedText).then(callback);
 ```
 -------------
+
 <a name="assertCssClassPresent" />
-###assertCssClassPresent
+
+### assertCssClassPresent
 Checks if the given element has the specified CSS class.
 ```javascript
 this.browser.assertCssClassPresent(cssSelector, className).then(callback);
 ```
 -------------
+
 <a name="assertCssClassNotPresent" />
-###assertCssClassNotPresent
+
+### assertCssClassNotPresent
 Checks if the given element does not have the specified CSS class.
 ```javascript
 this.browser.assertCssClassNotPresent(cssSelector, className).then(callback);
 ```
 -------------
+
 <a name="assertCssProperty" />
-###assertCssProperty
+
+### assertCssProperty
 Checks if the specified css property of a given element has the expected value.
 ```javascript
 this.browser.assertCssProperty("#main", "display", "block").then(callback);
 ```
 -------------
+
 <a name="assertElementPresent" />
-###assertElementPresent
+
+### assertElementPresent
 Checks if the given element exists in the DOM.
 ```javascript
 this.browser.assertElementPresent(".should_exist").then(callback);
 ```
 -------------
+
 <a name="assertElementNotPresent" />
-###assertElementNotPresent
+
+### assertElementNotPresent
 Checks if the given element does not exist in the DOM.
 ```javascript
 this.browser.assertElementNotPresent(".should_not_exist").then(callback);
 ```
 -------------
+
 <a name="assertHidden" />
-###assertHidden
+
+### assertHidden
 Checks if the given element is not visible on the page.
 ```javascript
 this.browser.assertHidden(".should_not_be_visible").then(callback);
 ```
 -------------
+
 <a name="assertTitle" />
-###assertTitle
+
+### assertTitle
 Checks if the page title equals the given value
 ```javascript
 this.browser.assertTtitle("Garden.js").then(callback);
 ```
 -------------
+
 <a name="assertUrlContains" />
-###assertUrlContains
+
+### assertUrlContains
 Checks if the current URL contains the given value.
 ```javascript
 this.browser.assertUrlContains("google").then(callback);
 ```
 -------------
+
 <a name="assertUrlEquals" />
-###assertUrlEquals
+
+### assertUrlEquals
 Checks if the current url equals the given value.
 ```javascript
 this.browser.assertUrlEquals("http://www.google.com").then(callback);
 ```
 -------------
+
 <a name="assertValue" />
-###assertValue
+
+### assertValue
 Checks if the given form element's value equals the expected value.
 ```javascript
 this.browser.assertValue("form.login input[type=text]", "username").then(callback);
 ```
 -------------
+
 <a name="assertValueContains" />
-###assertValueContains
+
+### assertValueContains
 Checks if the given form element's value contains the expected value.
 ```javascript
 this.browser.assertValueContains("form.login input[type=text]", "username").then(callback);
 ```
 -------------
+
 <a name="assertVisible" />
-###assertVisible
+
+### assertVisible
 Checks if the given element is not visible on the page.
 ```javascript
 this.browser.assertVisible(".should_be_visible").then(callback);
 ```
 -------------
+
 <a name="assertListEquals" />
-###assertListEquals
+
+### assertListEquals
 Checks if the text of elements equal with given values
 ```javascript
 var expectedOtions = ["one", "two"];
 this.browser.assertListEquals("table th", expectedOtions).then(callback);
 ```
 -------------
+
 <a name="assertListContains" />
-###assertListContains
+
+### assertListContains
 Checks if the text of elements contains given values
 ```javascript
 this.browser.assertListContains("table th", 'one').then(callback);
 ```
 -------------
+
 <a name="assertListNotContains" />
-###assertListNotContains
+
+### assertListNotContains
 Checks if the text of elements not contains given values
 ```javascript
 this.browser.assertListNotContains("table th", 'one').then(callback);
 ```
 -------------
+
 <a name="assertListContainsOnly" />
-###assertListContainsOnly
+
+### assertListContainsOnly
 Checks if the text of elements contains only given values
 ```javascript
 this.browser.assertListContainsOnly("table th", 'one').then(callback);
 // assert not fail if we have element "one two"
 ```
 -------------
+
 <a name="assertElementsEquals" />
-###assertElementsEquals
+
+### assertElementsEquals
 Checks if quantity of elements equal with given quantity
 ```javascript
 this.browser.assertElementsEquals("table th", qty).then(callback);
@@ -273,21 +315,26 @@ this.browser.assertElementsEquals("table th", qty).then(callback);
 
 -------------
 <a name="clearValue" />
-###clearValue
+
+### clearValue
 Clear a textarea or a text input element's value
 ```javascript
 this.browser.clearValue("input[type=text]").then(callback);
 ```
 -------------
+
 <a name="click" />
-###click
+
+### click
 Simulates a click event on the given DOM element.
 ```javascript
 this.browser.click(cssSelector).then(callback);
 ```
 -------------
+
 <a name="getValue" />
-###getValue
+
+### getValue
 Returns a form element current value
 ```javascript
 this.browser.getValue('input[name="source_label"]', function(value) {
@@ -295,8 +342,10 @@ this.browser.getValue('input[name="source_label"]', function(value) {
 }).then(callback);
 ```
 -------------
+
 <a name="getAttribute" />
-###getAttribute
+
+### getAttribute
 Retrieve the value of an attribute for a given DOM element.
 ```javascript
 this.browser.getAttribute('input[name="source_label"]', 'value', function(value) {
@@ -304,8 +353,10 @@ this.browser.getAttribute('input[name="source_label"]', 'value', function(value)
 }).then(callback);
 ```
 -------------
+
 <a name="getCurrentUrl" />
-###getCurrentUrl
+
+### getCurrentUrl
 Retrieve the value of url current page.
 ```javascript
 this.browser
@@ -315,8 +366,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="waitForElementVisible" />
-###waitForElementVisible
+
+### waitForElementVisible
 Waits for an element to be visible in the page before performing any other commands or assertions. (Optional parameters: `timeout`)
 ```javascript
 this.browser
@@ -324,8 +377,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="waitForElementNotVisible" />
-###waitForElementNotVisible
+
+### waitForElementNotVisible
 Opposite of waitForElementVisible. Waits for an element to be not visible (i.e. hidden but existing) in the page before performing any other commands or assertions. (Optional parameters: `timeout`)
 ```javascript
 this.browser
@@ -333,8 +388,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="urlHash" />
-###urlHash
+
+### urlHash
 Convenience method that adds the specified hash (i.e. url fragment) to current url.
 ```javascript
 this.browser
@@ -342,8 +399,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="refreshPage" />
-###refreshPage
+
+### refreshPage
 Refreshes the current page.
 ```javascript
 this.browser
@@ -351,8 +410,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="submitForm" />
-###submitForm
+
+### submitForm
 Submit a FORM element. The submit command may also be applied to any element that is a descendant of a FORM element.
 ```javascript
 this.browser
@@ -360,8 +421,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="setCookie" />
-###setCookie
+
+### setCookie
 Set a cookie, specified as a cookie JSON object.
 ```javascript
 this.browser
@@ -376,8 +439,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="saveScreenshot" />
-###saveScreenshot
+
+### saveScreenshot
 Take a screenshot of the current page and saves it as the given filename.
 ```javascript
 this.browser
@@ -385,8 +450,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="maximizeWindow" />
-###maximizeWindow
+
+### maximizeWindow
 Maximizes the current window.
 ```javascript
 this.browser
@@ -394,8 +461,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="resizeWindow" />
-###resizeWindow
+
+### resizeWindow
 Resizes the current window.
 ```javascript
 this.browser
@@ -403,8 +472,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getWindowSize" />
-###getWindowSize
+
+### getWindowSize
 Retrieve the size of current window.
 ```javascript
 this.browser
@@ -414,8 +485,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="pause" />
-###pause
+
+### pause
 Suspends the test for the given time in milliseconds.
 ```javascript
 this.browser
@@ -423,8 +496,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="isVisible" />
-###isVisible
+
+### isVisible
 Determine if an element is currently displayed.
 ```javascript
 this.browser
@@ -434,8 +509,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getTitle" />
-###getTitle
+
+### getTitle
 Returns the title of the current page.
 ```javascript
 this.browser
@@ -445,8 +522,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getText" />
-###getText
+
+### getText
 Returns the visible text for the element.
 ```javascript
 this.browser
@@ -456,8 +535,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getElementsText" />
-###getElementsText
+
+### getElementsText
 Returns the visible text for list of element.
 ```javascript
 this.browser
@@ -467,8 +548,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getTagName" />
-###getTagName
+
+### getTagName
 Query for an element's tag name.
 ```javascript
 this.browser
@@ -478,8 +561,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getLocation" />
-###getLocation
+
+### getLocation
 Determine an element's location on the page. The point (0, 0) refers to the upper-left corner of the page.
 ```javascript
 this.browser
@@ -489,8 +574,9 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getElementSize" />
-###getElementSize
+### getElementSize
 Determine an element's size in pixels.
 ```javascript
 this.browser
@@ -500,8 +586,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getCssProperty" />
-###getCssProperty
+
+### getCssProperty
 Retrieve the value of a css property for a given DOM element.
 ```javascript
 this.browser
@@ -511,8 +599,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getCookies" />
-###getCookies
+
+### getCookies
 Retrieve all cookies visible to the current page.
 ```javascript
 this.browser
@@ -522,8 +612,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="getCookie" />
-###getCookie
+
+### getCookie
 Retrieve a single cookie visible to the current page.
 ```javascript
 this.browser
@@ -533,8 +625,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="end" />
-###end
+
+### end
 Ends the session.
 ```javascript
 this.browser
@@ -542,8 +636,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="deleteCookies" />
-###deleteCookies
+
+### deleteCookies
 Delete all cookies visible to the current page.
 ```javascript
 this.browser
@@ -551,8 +647,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="deleteCookie" />
-###deleteCookie
+
+### deleteCookie
 Delete the cookie with the given name.
 ```javascript
 this.browser
@@ -560,8 +658,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="closeWindow" />
-###closeWindow
+
+### closeWindow
 Close the current window.
 ```javascript
 this.browser
@@ -569,8 +669,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="moveToObject" />
-###moveToObject
+
+### moveToObject
 Move the mouse by an offset of the specified element.
 ```javascript
 this.browser
@@ -578,8 +680,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="scrollToElement" />
-###scrollToElement
+
+### scrollToElement
 Move the mouse by an offset of the specified element.
 ```javascript
 this.browser
@@ -587,8 +691,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="dragAndDrop" />
-###dragAndDrop
+
+### dragAndDrop
 function for performing a "drag and drop"
 ```javascript
 this.browser
@@ -596,8 +702,10 @@ this.browser
   .then(callback);
 ```
 -------------
+
 <a name="setValue" />
-###setValue
+
+### setValue
 Sends some text to an element. Can be used to set the value of a form element or to send a sequence of key strokes to an element. Any UTF-8 character may be specified.
 ```javascript
 this.browser
@@ -605,8 +713,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="waitForElementPresent" />
-###waitForElementPresent
+
+### waitForElementPresent
 Waits for an element to be present in the page before performing any other commands or assertions. (Optional parameters: `timeout`)
 ```javascript
 this.browser
@@ -614,8 +724,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="waitForElementNotPresent" />
-###waitForElementNotPresent
+
+### waitForElementNotPresent
 Opposite of waitForElementPresent. Waits for an element to be not present (i.e. removed) in the page before performing any other commands or assertions. (Optional parameters: `timeout`)
 ```javascript
 this.browser
@@ -623,8 +735,10 @@ this.browser
     .then(callback);
 ```
 -------------
+
 <a name="waitForStatusByUrl" />
-###waitForStatusByUrl
+
+### waitForStatusByUrl
 Waits for receive response HTTP status
 ```javascript
 this.browser
